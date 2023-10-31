@@ -1,49 +1,24 @@
 {
-  "name": "hyperterm-summon",
-  "version": "2.0.11",
-  "description": "Summon your Hyperterm windows with a system-wide hotkey",
-  "main": "index.js",
+  "name": "hyper-sunbeam",
+  "version": "0.0.1",
+  "description": "Use Hyper as a Sunbeam Frontend",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Soutar/hyperterm-summon.git"
+    "url": "https://github.com/pomdtr/hyper-sunbeam.git"
   },
   "scripts": {
-    "format": "prettier '**/*.{css,md,js,json}' --write",
-    "lint": "eslint '{index,{__mocks__,fixtures,modules}/**/*}.js'",
-    "precommit": "lint-staged",
-    "test": "jest"
+    "format": "prettier '**/*.{css,md,js,json}' --write"
   },
   "keywords": [
     "hyper",
-    "hyper.app",
+    "hyperterm",
     "hyper-plugin",
-    "plugin",
-    "hotkey",
-    "shortcut",
-    "global",
-    "system",
-    "focus",
-    "summon"
+    "sunbeam"
   ],
-  "author": "John Soutar <john@soutar.me>",
+  "author": "Achille Lacoin",
   "license": "ISC",
-  "dependencies": {
-    "hyperterm-register-shortcut": "^1.3.0",
-    "lodash": "^4.17.11"
-  },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "husky": "^2.7.0",
-    "jest": "^24.8.0",
-    "lint-staged": "^8.2.1",
-    "prettier": "^1.18.2",
-    "release": "^6.3.1"
+    "prettier": "^1.18.2"
   }
 }

@@ -1,29 +1,20 @@
-# hyperterm-summon
+# hyperterm-sunbeam
 
-Summon your Hyper windows with a system-wide hotkey.
-
-In a multi-window situation, hyperterm-summon will remember the last active
-window and restore focus to it.
-
-If Hyper is already active when the hotkey is pressed, your terminal windows
-will be hidden and (on macOS only) your previously-active application will
-regain focus.
+Sunbeam integration for hyperterm.
 
 ## Installation
 
-Use the Hyper CLI, bundled with your Hyper app, to install hyperterm-summon
+Use the Hyper CLI, bundled with your Hyper app, to install hyperterm-sunbeam
 by entering the following into Hyper:
 
 ```bash
-hyper i hyperterm-summon
+hyper i hyperterm-sunbeam
 ```
 
 ## Options
 
 | Key          | Description                                             | Default  |
 | ------------ | ------------------------------------------------------- | -------- |
-| `hideDock`   | Hide the Hyper icon in the dock and app switcher.       | `false`  |
-| `hideOnBlur` | Hide Hyper when the windows lose focus.                 | `false`  |
 | `hotkey`     | Shortcut<sup>1</sup> to toggle Hyper window visibility. | `Ctrl+;` |
 
 ## Example Config
@@ -31,13 +22,11 @@ hyper i hyperterm-summon
 ```js
 module.exports = {
   config: {
-    summon: {
-      hideDock: true,
-      hideOnBlur: true,
-      hotkey: 'Alt+Super+O',
-    },
+    sunbeam: {
+      hotkey: "Alt+Super+O"
+    }
   },
-  plugins: ['hyperterm-summon'],
+  plugins: ["hyperterm-summon"]
 };
 ```
 
