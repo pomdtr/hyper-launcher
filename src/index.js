@@ -1,7 +1,7 @@
 // @ts-check
 
 // @ts-ignore
-const { globalShortcut, dialog } = require("electron");
+const { globalShortcut, dialog, app } = require("electron");
 const { toggleWindows, hideWindows, showWindows } = require("./window");
 const { getCenterOnCurrentScreen } = require("./screen");
 
@@ -42,6 +42,13 @@ function onApp(app) {
   };
 };
 
+function onWindow(win) {
+  win.on("close", () => {
+    app.hide()
+  });
+}
+
+
 function onUnload() {
   unload();
 }
@@ -66,6 +73,7 @@ function decorateBrowserOptions(defaults) {
 
 module.exports = {
   onApp,
+  onWindow,
   onUnload,
   decorateBrowserOptions
 };
