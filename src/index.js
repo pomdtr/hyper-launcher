@@ -26,10 +26,17 @@ function onApp(app) {
       },
       accelerator: hotkey,
     },
+    { type: "separator" },
     {
-      label: 'Edit Config',
+      label: 'Edit Sunbeam Config',
       click: () => {
         shell.openPath(path.join(os.homedir(), '.config', 'sunbeam', 'sunbeam.json'))
+      },
+    },
+    {
+      label: 'Edit Hyper Config',
+      click: () => {
+        shell.openPath(path.join(os.homedir(), '.hyper.js'))
       },
     },
     { type: 'separator' },
