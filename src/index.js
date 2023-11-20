@@ -1,9 +1,11 @@
 // @ts-check
 
 // @ts-ignore
-const { globalShortcut, dialog, app } = require("electron");
+const { globalShortcut, dialog, app, Tray, Menu, shell } = require("electron");
 const { toggleWindows, hideWindows, showWindows } = require("./window");
 const { getCenterOnCurrentScreen } = require("./screen");
+const path = require("path");
+const os = require("os");
 
 let unload = () => { }
 
@@ -14,6 +16,46 @@ function onApp(app) {
   );
 
   app.dock.hide();
+
+  const tray = new Tray(path.join(__dirname, "../assets/trayicon.png"));
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Show Sunbeam',
+      click: () => {
+        showWindows(app);
+      },
+      accelerator: hotkey,
+    },
+    {
+      label: 'Edit Config',
+      click: () => {
+        shell.openPath(path.join(os.homedir(), '.config', 'sunbeam', 'sunbeam.json'))
+      },
+    },
+    { type: 'separator' },
+    {
+      label: 'Open Website',
+      click: () => {
+        shell.openExternal('https://sunbeam.deno.dev/docs');
+      },
+    },
+    {
+      label: 'Open Repository',
+      click: () => {
+        shell.openExternal('https://github.com/pomdtr/sunbeam');
+      }
+    },
+    { type: 'separator' },
+    {
+      label: 'Quit',
+      click: () => {
+        app.quit();
+      },
+    },
+  ]);
+
+  tray.setToolTip('Sunbeam');
+  tray.setContextMenu(contextMenu);
 
   const onActivate = () => {
     showWindows(app);
