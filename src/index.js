@@ -17,7 +17,7 @@ function onApp(app) {
 
   app.dock.hide();
 
-  const tray = new Tray(path.join(__dirname, "../assets/trayicon.png"));
+  const tray = new Tray(path.join(__dirname, "../assets/trayiconTemplate.png"));
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Show Sunbeam',
@@ -34,13 +34,13 @@ function onApp(app) {
     },
     { type: 'separator' },
     {
-      label: 'Open Website',
+      label: 'Browse Documentation',
       click: () => {
         shell.openExternal('https://sunbeam.deno.dev/docs');
       },
     },
     {
-      label: 'Open Repository',
+      label: 'Open Github Repository',
       click: () => {
         shell.openExternal('https://github.com/pomdtr/sunbeam');
       }
