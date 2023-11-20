@@ -1,6 +1,6 @@
 {
   "name": "hyper-sunbeam",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Use Hyper as a Sunbeam Frontend",
   "main": "src/index.js",
   "repository": {
