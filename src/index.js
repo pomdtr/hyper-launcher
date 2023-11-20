@@ -107,6 +107,7 @@ function decorateBrowserOptions(defaults) {
   const bounds = getCenterOnCurrentScreen(defaults.width, defaults.height);
   return Object.assign({}, defaults, {
     ...bounds,
+    titleBarStyle: '',
     transparent: true,
     frame: false,
     alwaysOnTop: true,
@@ -120,9 +121,93 @@ function decorateBrowserOptions(defaults) {
   });
 };
 
+function decorateConfig(config) {
+  const macosCSS = `
+    .header_header {
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+    .tabs_borderShim {
+      display: none;
+    }
+    .tabs_title {
+      display: none;
+    }
+    .tabs_nav {
+      height: auto;
+    }
+    .tabs_list {
+      margin-left: 0;
+    }
+    .tab_tab:first-of-type {
+      border-left-width: 0;
+      padding-left: 1px;
+    }
+  `
+  const defaultCSS = `
+    .header_windowHeader {
+      display: none;
+    }
+    .tabs_nav {
+      top: 0;
+    }
+    .tabs_list {
+      padding-left: 0;
+    }
+    .tabs_list:before {
+      display: none;
+    }
+    .tab_first {
+      border-left-width: 0;
+    }
+    .terms_terms {
+      margin-top: 0;
+    }
+    .terms_termsShifted {
+      margin-top: 34px;
+    }
+    .tab_tab:after {
+      display: none;
+    }
+  `
+
+  return Object.assign({}, config, {
+    css: `
+      ${config.css || ''}
+      ${process.platform === 'darwin' ? macosCSS : defaultCSS}
+    `
+  });
+}
+
+// Removes the redundant space on mac if there is only one tab
+function getTabsProps(parentProps, props) {
+  if (process.platform === 'darwin') {
+    var classTermsList = document.getElementsByClassName('terms_terms')
+    if (classTermsList.length > 0) {
+      var classTerms = classTermsList[0]
+      var header = document.getElementsByClassName('header_header')[0]
+      if (props.tabs.length <= 1) {
+        // @ts-ignore
+        classTerms.style.marginTop = 0
+        // @ts-ignore
+        header.style.visibility = 'hidden'
+      } else {
+        // @ts-ignore
+        classTerms.style.marginTop = ''
+        // @ts-ignore
+        header.style.visibility = ''
+      }
+    }
+  }
+  return Object.assign({}, parentProps, props)
+}
+
 module.exports = {
   onApp,
   onWindow,
   onUnload,
-  decorateBrowserOptions
+  decorateBrowserOptions,
+  getTabsProps,
+  decorateConfig,
 };

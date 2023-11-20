@@ -26,7 +26,7 @@ module.exports = {
       hotkey: "Alt+Super+O"
     }
   },
-  plugins: ["hyperterm-summon"]
+  plugins: ["hyperterm-sunbeam"]
 };
 ```
 
