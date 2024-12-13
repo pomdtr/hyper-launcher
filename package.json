@@ -1,6 +1,6 @@
 {
   "name": "hyper-launcher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Use hyper as a launcher",
   "main": "src/index.js",
   "repository": {
