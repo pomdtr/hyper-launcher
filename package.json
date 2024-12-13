@@ -1,11 +1,11 @@
 {
-  "name": "hyper-sunbeam",
-  "version": "0.0.8",
-  "description": "Use Hyper as a Sunbeam Frontend",
+  "name": "hyper-launcher",
+  "version": "0.1.0",
+  "description": "Use hyper as a launcher",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pomdtr/hyper-sunbeam.git"
+    "url": "https://github.com/pomdtr/hyper-launcher.git"
   },
   "scripts": {
     "format": "prettier '**/*.{css,md,js,json}' --write"
@@ -14,7 +14,7 @@
     "hyper",
     "hyperterm",
     "hyper-plugin",
-    "sunbeam"
+    "launcher"
   ],
   "author": "Achille Lacoin",
   "license": "ISC",

@@ -12,7 +12,7 @@ let unload = () => { }
 function onApp(app) {
   const { hotkey } = Object.assign(
     { hotkey: "Ctrl+;" },
-    app.config.getConfig().sunbeam
+    app.config.getConfig().launcher
   );
 
   app.dock.hide();
@@ -20,7 +20,7 @@ function onApp(app) {
   const tray = new Tray(path.join(__dirname, "../assets/trayiconTemplate.png"));
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: 'Show Sunbeam',
+      label: 'Show Launcher',
       click: () => {
         showWindows(app);
       },
@@ -28,29 +28,10 @@ function onApp(app) {
     },
     { type: "separator" },
     {
-      label: 'Edit Sunbeam Config',
-      click: () => {
-        shell.openPath(path.join(os.homedir(), '.config', 'sunbeam', 'sunbeam.json'))
-      },
-    },
-    {
       label: 'Edit Hyper Config',
       click: () => {
         shell.openPath(path.join(os.homedir(), '.hyper.js'))
       },
-    },
-    { type: 'separator' },
-    {
-      label: 'Browse Documentation',
-      click: () => {
-        shell.openExternal('https://sunbeam.deno.dev/docs');
-      },
-    },
-    {
-      label: 'Open Github Repository',
-      click: () => {
-        shell.openExternal('https://github.com/pomdtr/sunbeam');
-      }
     },
     { type: 'separator' },
     {
@@ -61,7 +42,7 @@ function onApp(app) {
     },
   ]);
 
-  tray.setToolTip('Sunbeam');
+  tray.setToolTip('Hyper');
   tray.setContextMenu(contextMenu);
 
   const onActivate = () => {

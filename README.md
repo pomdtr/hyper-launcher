@@ -1,14 +1,14 @@
-# hyperterm-sunbeam
+# Hyper launcher
 
-Sunbeam integration for hyperterm.
+Make alfred behaves like an app launcher.
 
 ## Installation
 
-Use the Hyper CLI, bundled with your Hyper app, to install hyperterm-sunbeam
+Use the Hyper CLI, bundled with your Hyper app, to install hyperterm-launcher
 by entering the following into Hyper:
 
 ```bash
-hyper i hyperterm-sunbeam
+hyper i hyperterm-launcher
 ```
 
 ## Options
@@ -22,11 +22,11 @@ hyper i hyperterm-sunbeam
 ```js
 module.exports = {
   config: {
-    sunbeam: {
+    launcher: {
       hotkey: "Alt+Super+O"
     }
   },
-  plugins: ["hyperterm-sunbeam"]
+  plugins: ["hyperterm-launcher"]
 };
 ```
 
